@@ -4,8 +4,8 @@
  # For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
 
 model:
-  arch: blip2_opt
-  model_type: pretrain_opt2.7b 
+  arch: blip2_llama
+  model_type: pretrain_llama3.1
   load_pretrained: True
   # intialize stage 2 pretraining from stage 1 pretrained model
   pretrained: "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/blip2_pretrained.pth"
