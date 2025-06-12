@@ -1,0 +1,37 @@
+# BLIP-2 LLaMA 3.1 evaluation on COCO Captions
+
+model:
+  arch: blip2_llama
+  model_type: pretrain_llama3.1
+  use_grad_checkpoint: False
+
+datasets:
+  coco_caption:
+    vis_processor:
+        eval:
+          name: "blip_image_eval"
+          image_size: 364
+    text_processor:
+        eval:
+          name: "blip_caption"
+
+run:
+  task: captioning
+  batch_size_train: 32
+  batch_size_eval: 16
+  num_workers: 4
+
+  max_len: 30
+  min_len: 8
+  num_beams: 5
+
+  seed: 42
+  output_dir: "output/BLIP2/Caption_coco_llama3.1"
+
+  evaluate: True
+  test_splits: ["test"]
+
+  device: "cuda"
+  world_size: 1
+  dist_url: "env://"
+  distributed: True
